@@ -1,8 +1,9 @@
-import 'package:flutter_application_1/app/data/Api/controller/auth_controller.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
-  final authC = Get.find<AuthController>();
+class ProfileController extends GetxController {
+  //TODO: Implement ProfileController
+
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -17,4 +18,6 @@ class LoginController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  void increment() => count.value++;
 }
