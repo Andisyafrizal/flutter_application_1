@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+import '../../../data/Api/controller/auth_controller.dart';
+import '../../../data/Api/profile_api.dart';
+import 'profile_model.dart';
 
-  final count = 0.obs;
+class ProfileController extends GetxController {
+  final authC = Get.find<AuthController>();
+  ProfileModel profileModel = ProfileModel();
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +23,27 @@ class ProfileController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  Future<ProfileModel> getUser() async {
+    try {
+      var res = await ProfileApi().getProfile(
+        accesstoken: authC.currentToken!,
+      );
+      if (res.data['success'] == true) {
+        profileModel = ProfileModel.fromJson(res.data);
+        return profileModel;
+      } else {
+        Get.rawSnackbar(
+          messageText: Text(res.data['message'].toString()),
+          backgroundColor: Colors.red.shade300,
+        );
+        return profileModel;
+      }
+    } catch (e) {
+      Get.rawSnackbar(
+        messageText: Text(e.toString()),
+        backgroundColor: Colors.red.shade300,
+      );
+      return profileModel;
+    }
+  }
 }
