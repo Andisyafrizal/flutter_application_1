@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/models/profile/controllers/Profile_model.dart';
 
 import 'package:get/get.dart';
 
@@ -6,7 +7,7 @@ import '../../../routes/app_pages.dart';
 import '../../../style/app_color.dart';
 import '../../../widget/custom_bottom_navigation_bar.dart';
 import '../controllers/profile_controller.dart';
-import '../controllers/profile_model.dart';
+import '../controllers/Profile_model.dart';
 
 class ProfileView extends GetView<ProfileController> {
   const ProfileView({super.key});

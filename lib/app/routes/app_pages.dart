@@ -1,17 +1,17 @@
 import 'package:get/get.dart';
 
-import '../modules/absen/bindings/absen_binding.dart';
-import '../modules/absen/views/absen_view.dart';
-import '../modules/change_password/bindings/change_password_binding.dart';
-import '../modules/change_password/views/change_password_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
-import '../modules/profile/bindings/profile_binding.dart';
-import '../modules/profile/views/profile_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
+import '../models/absen/bindings/absen_binding.dart';
+import '../models/absen/views/absen_view.dart';
+import '../models/change_password/bindings/change_password_binding.dart';
+import '../models/change_password/views/change_password_view.dart';
+import '../models/home/bindings/home_binding.dart';
+import '../models/home/views/home_view.dart';
+import '../models/login/bindings/login_binding.dart';
+import '../models/login/views/login_view.dart';
+import '../models/profile/bindings/profile_binding.dart';
+import '../models/profile/views/profile_view.dart';
+import '../models/register/bindings/register_binding.dart';
+import '../models/register/views/register_view.dart';
 
 part 'app_routes.dart';
 

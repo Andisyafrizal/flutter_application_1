@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/models/profile/controllers/Profile_model.dart';
 import 'package:get/get.dart';
 
 import '../../../data/Api/controller/auth_controller.dart';
 import '../../../data/Api/profile_api.dart';
-import 'profile_model.dart';
+import 'Profile_model.dart';
 
 class ProfileController extends GetxController {
   final authC = Get.find<AuthController>();

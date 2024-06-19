@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app/data/Api/api_client.dart';
+import 'package:flutter_application_1/app/data/Api/profil_perusahaan_api.dart';
+import 'package:flutter_application_1/app/models/profile_perusahaan_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
@@ -88,4 +90,40 @@ class AuthController extends GetxController {
     }
   }
 
+   ProfileperusahaanModel profilPerusahaanModel = ProfileperusahaanModel(); 
+
+   Future<ProfileperusahaanModel> getProfilePerusahaan(
+    {required String token}) async {
+      try {
+        var res = await ProfilePerusahaanApi(). getProfilePerusahaan(
+          accesstoken:token
+        );
+
+        if (res.data['succes'] == true) {
+          print(res.data);
+          profilPerusahaanModel = profileperusahaanModelFromJson(res.data);
+          return profilPerusahaanModel;
+        }else {
+          Get.rawSnackbar(
+            messageText:  Text(res.data['messega'].toString()),
+            backgroundColor: Colors.red.shade300,
+          );
+          return profilPerusahaanModel;
+        }
+      } catch (e) {
+        Get.rawSnackbar(
+          messageText: Text(e.toString()),
+          backgroundColor: Colors.red.shade300,
+        );
+        return profilPerusahaanModel;
+      }
+    }
+   
+
 }
+
+ 
+   
+ 
+
+
